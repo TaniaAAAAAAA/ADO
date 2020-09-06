@@ -1,0 +1,9 @@
+C:\Users\Tanuha\Desktop\DataAdapter\bin\Debug\DataAdapter.exe.config
+C:\Users\Tanuha\Desktop\DataAdapter\bin\Debug\DataAdapter.exe
+C:\Users\Tanuha\Desktop\DataAdapter\bin\Debug\DataAdapter.pdb
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.csprojAssemblyReference.cache
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.Form1.resources
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.Properties.Resources.resources
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.csproj.GenerateResource.cache
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.exe
+C:\Users\Tanuha\Desktop\DataAdapter\obj\Debug\DataAdapter.pdb
