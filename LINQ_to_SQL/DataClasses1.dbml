@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BooksDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=194.44.93.225;Initial Catalog=BooksDB;User ID=tania;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="LINQ_to_SQL.Properties.Settings" SettingsPropertyName="BooksDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Book">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pages" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Img" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Author_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Genre_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Picture" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Author_Book" Member="Author" ThisKey="Author_Id" OtherKey="Id" Type="Author" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authors" Member="Authors">
+    <Type Name="Author">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Author_Book" Member="Books" ThisKey="Id" OtherKey="Author_Id" Type="Book" />
+    </Type>
+  </Table>
+</Database>

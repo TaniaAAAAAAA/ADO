@@ -1,0 +1,6 @@
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\bin\Debug\LINQ_to_SQL.exe.config
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\bin\Debug\LINQ_to_SQL.exe
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\bin\Debug\LINQ_to_SQL.pdb
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\obj\Debug\LINQ_to_SQL.csprojAssemblyReference.cache
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\obj\Debug\LINQ_to_SQL.exe
+C:\Users\Tanuha\Desktop\LINQ_to_SQL\obj\Debug\LINQ_to_SQL.pdb
