@@ -1,0 +1,11 @@
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\ADO_Entity.exe.config
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\ADO_Entity.exe
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\ADO_Entity.pdb
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\EntityFramework.dll
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\EntityFramework.xml
+C:\Users\Tanuha\Desktop\ADO_Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tanuha\Desktop\ADO_Entity\obj\Debug\ADO_Entity.csprojAssemblyReference.cache
+C:\Users\Tanuha\Desktop\ADO_Entity\obj\Debug\ADO_Entity.csproj.CopyComplete
+C:\Users\Tanuha\Desktop\ADO_Entity\obj\Debug\ADO_Entity.exe
+C:\Users\Tanuha\Desktop\ADO_Entity\obj\Debug\ADO_Entity.pdb

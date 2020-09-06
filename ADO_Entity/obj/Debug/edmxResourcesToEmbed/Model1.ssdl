@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Achievement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdStudent" Type="int" />
+    <Property Name="IdSubject" Type="int" />
+    <Property Name="Mark" Type="int" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Id_Department" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
+    <Property Name="IdGroup" Type="int" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Id_Department" Type="int" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="Id_Department" Type="int" />
+  </EntityType>
+  <EntityType Name="TeachersGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTeacher" Type="int" />
+    <Property Name="IdGroup" Type="int" />
+    <Property Name="IdSubject" Type="int" />
+  </EntityType>
+  <Association Name="FK__Achieveme__IdStu__5AEE82B9">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="IdStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Achieveme__IdSub__5BE2A6F2">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="IdSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups__Id_Depar__3B75D760">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="Id_Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__IdGroup__5812160E">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="IdGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subject__Id_Depa__4316F928">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="Id_Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teacher__Id_Depa__3F466844">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="Id_Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TeachersG__IdGro__46E78A0C">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="TeachersGroups" Type="Self.TeachersGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeachersGroups">
+        <PropertyRef Name="IdGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TeachersG__IdSub__47DBAE45">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="TeachersGroups" Type="Self.TeachersGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeachersGroups">
+        <PropertyRef Name="IdSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeachersGroups_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeachersGroups" Type="Self.TeachersGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeachersGroups">
+        <PropertyRef Name="IdTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversityModelStoreContainer">
+    <EntitySet Name="Achievement" EntityType="Self.Achievement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeachersGroups" EntityType="Self.TeachersGroups" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Achieveme__IdStu__5AEE82B9" Association="Self.FK__Achieveme__IdStu__5AEE82B9">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Achievement" EntitySet="Achievement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Achieveme__IdSub__5BE2A6F2" Association="Self.FK__Achieveme__IdSub__5BE2A6F2">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Achievement" EntitySet="Achievement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups__Id_Depar__3B75D760" Association="Self.FK__Groups__Id_Depar__3B75D760">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__IdGroup__5812160E" Association="Self.FK__Student__IdGroup__5812160E">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subject__Id_Depa__4316F928" Association="Self.FK__Subject__Id_Depa__4316F928">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Subject" EntitySet="Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teacher__Id_Depa__3F466844" Association="Self.FK__Teacher__Id_Depa__3F466844">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TeachersG__IdGro__46E78A0C" Association="Self.FK__TeachersG__IdGro__46E78A0C">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="TeachersGroups" EntitySet="TeachersGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TeachersG__IdSub__47DBAE45" Association="Self.FK__TeachersG__IdSub__47DBAE45">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="TeachersGroups" EntitySet="TeachersGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeachersGroups_Teacher" Association="Self.FK_TeachersGroups_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="TeachersGroups" EntitySet="TeachersGroups" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
